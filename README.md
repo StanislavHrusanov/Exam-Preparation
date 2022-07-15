@@ -476,3 +476,93 @@ On the **second line,** print **"Travel Points: {travel\_points}"**.
 </tbody>
 </table>
 
+## **Problem 6 - Plant Discovery**
+
+*You have now returned from your world tour. On your way, you have
+discovered some new plants, and you want to gather some information
+about them and create an exhibition to see which plant is highest
+rated.*
+
+On the **first line,** you will receive a number **n**. On the next **n
+lines**, you will be given some information about the plants that you
+have discovered in the format: **"{plant}\<-\>{rarity}"**. **Store**
+that **information** because you will need it later. If you receive a
+plant **more than once**, **update** its rarity.
+
+After that, until you receive the **command** **"Exhibition"**, you will
+be given some of these **commands**:
+
+  - **"Rate: {plant} - {rating}"** – **add** the given **rating** to the
+    plant (**store all ratings**)
+
+  - **"Update: {plant} - {new\_rarity}"** – **update** the **rarity** of
+    the plant with the **new one**
+
+  - **"Reset: {plant}"** – **remove all** the **ratings** of the given
+    plant
+
+**<span class="underline">Note: If any given plant name is invalid,
+print "error"</span>**
+
+After the command **"Exhibition"**, print the information that you have
+about the plants in the following format:
+
+**"Plants for the exhibition:  
+\- {plant\_name1}; Rarity: {rarity}; Rating: {average\_rating}**
+
+**- {plant\_name2}; Rarity: {rarity}; Rating: {average\_rating}  
+…**
+
+**- {plant\_nameN}; Rarity: {rarity}; Rating: {average\_rating}"**
+
+The **average rating** should be formatted to the **second decimal
+place.**
+
+### Input / Constraints
+
+  - **You will receive the input as described above**
+
+  - **JavaScript: you will receive a list of strings**
+
+### Output
+
+  - Print the **information** about all plants as **described above**
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["3",</p>
+<p>"Arnoldii&lt;-&gt;4",</p>
+<p>"Woodii&lt;-&gt;7",</p>
+<p>"Welwitschia&lt;-&gt;2",</p>
+<p>"Rate: Woodii - 10",</p>
+<p>"Rate: Welwitschia - 7",</p>
+<p>"Rate: Arnoldii - 3",</p>
+<p>"Rate: Woodii - 5",</p>
+<p>"Update: Woodii - 5",</p>
+<p>"Reset: Arnoldii",</p>
+<p>"Exhibition"])</p></td>
+<td><p>Plants for the exhibition:</p>
+<p>- Arnoldii; Rarity: 4; Rating: 0.00</p>
+<p>- Woodii; Rarity: 5; Rating: 7.50</p>
+<p>- Welwitschia; Rarity: 2; Rating: 7.00</p></td>
+</tr>
+<tr class="odd">
+<td><p>(["2",</p>
+<p>"Candelabra&lt;-&gt;10"</p>
+<p>"Oahu&lt;-&gt;10",</p>
+<p>"Rate: Oahu - 7",</p>
+<p>"Rate: Candelabra - 6",</p>
+<p>"Exhibition"])</p></td>
+<td><p>Plants for the exhibition:</p>
+<p>- Candelabra; Rarity: 10; Rating: 6.00</p>
+<p>- Oahu; Rarity: 10; Rating: 7.00</p></td>
+</tr>
+</tbody>
+</table>
