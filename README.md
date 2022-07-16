@@ -566,3 +566,108 @@ place.**
 </tr>
 </tbody>
 </table>
+
+## **Problem 7 - Secret Chat**
+
+*You have plenty of free time, so you decide to write a program that
+conceals and reveals your received messages. Go ahead and type it in\!*
+
+On the first line of the input, you will receive the **concealed
+message**. After that, until the **"Reveal"** command is given, **you
+will receive strings with instructions for different operations that
+need to be performed upon the concealed message** to **interpret**
+**it** and reveal its actual content. There are several types of
+instructions, split by **":|:"**
+
+  - **"InsertSpace:|:{index}"**:
+    
+      - Inserts a single **space** **at the given index**. The given
+        index will always be valid.
+
+  - **"Reverse:|:{substring}"**:
+    
+      - If the message contains the given **substring**, **cut it out**,
+        **reverse** it and **add** it at the **end** of the message.
+    
+      - If not, print **"error"**.
+    
+      - This operation should replace only the first occurrence of the
+        given **substring** **if there are two or more occurrences**.
+
+  - **"ChangeAll:|:{substring}:|:{replacement}"**:
+    
+      - Changes **all occurrences** of the given **substring** with the
+        **replacement text**.
+
+### Input / Constraints
+
+  - On the first line, you will receive a string with a message.
+
+  - On the following lines, you will be receiving commands, split by
+    **":|:"**.
+
+### Output
+
+  - After each set of instructions, print the resulting string.
+
+  - After the **"Reveal"** command is received, print this message:  
+    "**You have a new text message: {message}**"
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>[</p>
+<p>'heVVodar!gniV',</p>
+<p>'ChangeAll:|:V:|:l',</p>
+<p>'Reverse:|:!gnil',</p>
+<p>'InsertSpace:|:5',</p>
+<p>'Reveal'</p>
+<p>]</p></td>
+<td><p>hellodar!gnil</p>
+<p>hellodarling!</p>
+<p>hello darling!</p>
+<p>You have a new text message: hello darling!</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Comments</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><strong>ChangeAll:|:V:|:l<br />
+</strong>heVVodar!gniV -&gt; hellodar!gnil (We replace all occurrences of "V" with "l")</p>
+<p><strong>Reverse:|:!gnil</strong></p>
+<p>hellodar!gnil -&gt; !gnil -&gt; ling! -&gt; hellodarling! (We reverse !gnil to ling! And put it in the end of the string)</p>
+<p><strong>InsertSpace:|:5</strong></p>
+<p>hellodarling! -&gt; hello.darling! (We insert a space at index 5)</p>
+<p>Finally, after receiving the <strong>"Reveal"</strong> command, we print the resulting message.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>[</p>
+<p>'Hiware?uiy',</p>
+<p>'ChangeAll:|:i:|:o',</p>
+<p>'Reverse:|:?uoy',</p>
+<p>'Reverse:|:jd',</p>
+<p>'InsertSpace:|:3',</p>
+<p>'InsertSpace:|:7',</p>
+<p>'Reveal'</p>
+<p>]</p></td>
+<td><p>Howare?uoy</p>
+<p>Howareyou?</p>
+<p>error</p>
+<p>How areyou?</p>
+<p>How are you?</p>
+<p>You have a new text message: How are you?</p></td>
+</tr>
+</tbody>
+</table>
