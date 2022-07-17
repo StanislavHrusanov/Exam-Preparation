@@ -671,3 +671,128 @@ instructions, split by **":|:"**
 </tr>
 </tbody>
 </table>
+
+## **Problem 8 - Mirror words**
+
+*The SoftUni Spelling Bee competition is here. But it\`s not like any
+other Spelling Bee competition out there. It\`s different and a lot more
+fun\! You, of course, are a participant, and you are eager to show the
+competition that you are the best, so go ahead, learn the rules and
+win\!*
+
+On the first line of the input, you will be given a **text string**. To
+win the competition, you have to find all hidden **word pairs**, read
+them, and mark the ones that are **mirror** **images** of each other.
+
+First of all, you have to **extract the hidden word pairs**. Hidden word
+pairs are:
+
+  - Surrounded by **"@"** or **"\#"** (only one of the two) in the
+    following pattern **\#wordOne\#\#wordTwo\#** or
+    **@wordOne@@wordTwo@**
+
+  - At least **3 characters long each** (**without the surrounding
+    symbols**)
+
+  - Made up of **letters** **only**
+
+If the second word, **spelled backward,** is the **same** **as the first
+word** **and vice versa** (**casing matters**\!), they are a **match,**
+and you have to store them somewhere. **Examples** of mirror words:
+
+**\#Part\#\#traP\# @leveL@@Level@ \#sAw\#\#wAs\#**
+
+  - If you don\`t find any valid pairs, print: **"No word pairs
+    found\!"**
+
+  - If you find valid pairs print their count: **"{valid pairs count}
+    word pairs found\!"**
+
+  - If there are no mirror words, print: **"No mirror words\!"**
+
+  - If there are mirror words print:
+
+> "The mirror words are:
+> 
+> {wordOne} \<=\> {wordtwo}, {wordOne} \<=\> {wordtwo}, … {wordOne}
+> \<=\> {wordtwo}"
+
+### Input / Constraints
+
+  - **You will recive a string.**
+
+### Output
+
+  - Print the proper output messages in the proper cases as described in
+    the problem description.
+
+  - If there are pairs of mirror words, print them in the end, each pair
+    separated by **", "**.
+
+  - Each pair of mirror word must be printed with **" \<=\> "** between
+    the words.
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>[</p>
+<p>'@mix#tix3dj#poOl##loOp#wl@@bong&amp;song%4very$long@thong#Part##traP##@@leveL@@Level@##car#rac##tu@pack@@ckap@#rr#sAw##wAs#r#@w1r'</p>
+<p>]</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td><strong>Comments</strong></td>
+</tr>
+<tr class="even">
+<td><p>5 word pairs found!</p>
+<p>The mirror words are:</p>
+<p>Part &lt;=&gt; traP, leveL &lt;=&gt; Level, sAw &lt;=&gt; wAs</p></td>
+<td><p>There are 5 green and yellow pairs that meet all requirements and thus are valid.</p>
+<p>#poOl##loOp# is valid and looks very much like a mirror words pair, but it isn`t because the casings don`t match.</p>
+<p>#car#rac# "rac" spelled backward is "car", but this is not a valid pair because there is only one "#" between the words.</p>
+<p>@pack@@ckap@ is also valid, but "ckap" backward is "pakc" which is not the same as "pack", so they are not mirror words.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[ '#po0l##l0op# @bAc##cAB@ @LM@ML@ #xxxXxx##xxxXxx# @aba@@ababa@' ]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td><strong>Comments</strong></td>
+</tr>
+<tr class="even">
+<td><p>2 word pairs found!</p>
+<p>No mirror words!</p></td>
+<td><p>"xxxXxx" backward is not the same as "xxxXxx"</p>
+<p>@aba@@ababa@ is a valid pair, but the word lengths are different - these are definitely not mirror words</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[ '#lol#lol# @#God@@doG@# #abC@@Cba# @Xyu@#uyX#' ]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td><strong>Comments</strong></td>
+</tr>
+<tr class="even">
+<td><p>No word pairs found!</p>
+<p>No mirror words!</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
