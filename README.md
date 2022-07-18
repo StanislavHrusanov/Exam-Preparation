@@ -942,3 +942,108 @@ your possession in the following format:
 </tr>
 </tbody>
 </table>
+
+## **Problem 10 - Password Reset**
+
+*Yet again, you have forgotten your password. Naturally, it's not the
+first time this has happened. Actually, you got so tired of it that you
+decided to help yourself with an intelligent solution.*
+
+Write a password reset program that performs a series of commands upon a
+predefined string. First, you will receive a string, and afterward,
+until the command "**Done**" is given, you will be receiving strings
+with commands split by a single space. The commands will be the
+following:
+
+  - **"TakeOdd"**
+    
+      - Takes only the characters at **odd** **indices** and
+        **concatenates** them to obtain the **new raw password** and
+        then **prints** it.
+
+  - **"Cut {index} {length}"**
+    
+      - Gets the substring with the **given length** starting from the
+        **given index** from the password and removes its **first
+        occurrence**, then **prints** the password on the console.
+    
+      - The given index and the length will **always** be **valid**.
+
+  - **"Substitute {substring} {substitute}"**
+    
+      - If the raw password contains the given substring, replaces all
+        of its occurrences with the substitute text given and prints the
+        result.
+    
+      - If it doesn't, prints **"Nothing to replace\!"**.
+
+### Input
+
+  - You will be receiving strings until the "**Done**" command is given.
+
+### Output
+
+  - After the **"Done"** command is received, print:
+    
+      - **"Your password is: {password}"**
+
+### Constraints
+
+  - The indexes from the "**Cut {index} {length}**" command will always
+    be valid.
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr",</p>
+<p>"TakeOdd",</p>
+<p>"Cut 15 3",</p>
+<p>"Substitute :: -",</p>
+<p>"Substitute | ^",</p>
+<p>"Done"])</p></td>
+<td><p>icecream::hot::summer</p>
+<p>icecream::hot::mer</p>
+<p>icecream-hot-mer</p>
+<p>Nothing to replace!</p>
+<p>Your password is: icecream-hot-mer</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Comments</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><strong>TakeOdd -&gt;</strong> We only take the chars at odd indices 1, 3, 5 etc.</p>
+<p>Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr -&gt; icecream::hot::summer</p>
+<p><strong>Cut 15 3 -&gt;</strong> We cut a substring starting at index 15 with length 3, then remove it from the raw password:</p>
+<p>icecream::hot::summer -&gt; sum</p>
+<p><strong>Substitute :: - -&gt;</strong> We replace <strong>"</strong>::<strong>"</strong> with <strong>"</strong>-<strong>"</strong>:</p>
+<p>icecream::hot::summer -&gt; icream-hot-summer</p>
+<p><strong>Substitute</strong> | ^ <strong>-&gt; "</strong>|<strong>"</strong> is not found anywhere in the raw password, so we print <strong>"Nothing to replace!"</strong></p>
+<p>Finally, after receiving the <strong>"Done"</strong> command, we print the resulting password in the proper format.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>([<strong>"</strong>up8rgoyg3r1atmlmpiunagt!-irs7!1fgulnnnqy<strong>",</strong></p>
+<p><strong>"</strong>TakeOdd<strong>",</strong></p>
+<p><strong>"</strong>Cut 18 2<strong>",</strong></p>
+<p><strong>"</strong>Substitute ! ***<strong>",</strong></p>
+<p><strong>"</strong>Substitute ? .!.<strong>",</strong></p>
+<p><strong>"</strong>Done<strong>"])</strong></p></td>
+<td><p>programming!is!funny</p>
+<p>programming!is!fun</p>
+<p>programming***is***fun</p>
+<p>Nothing to replace!</p>
+<p>Your password is: programming***is***fun</p></td>
+</tr>
+</tbody>
+</table>
