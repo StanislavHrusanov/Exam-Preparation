@@ -1047,3 +1047,99 @@ following:
 </tr>
 </tbody>
 </table>
+
+## **Problem 11 - Fancy Barcodes**
+
+Your first task is to determine if the given sequence of characters is a
+**valid** barcode or **not**.
+
+**Each line must not contain anything else but a valid barcode**. A
+barcode is **valid** when:
+
+  - It is surrounded by a **"@"** followed by one or more **"\#"**
+
+  - It is **at least 6 characters long** (without the surrounding
+    **"@"** or **"\#"**)
+
+  - **It starts** with a **capital letter**
+
+  - It contains **only letters** (lower and upper case) **and digits**
+
+  - **It ends** with a **capital letter**
+
+Examples of valid barcodes: **@\#\#\#Che46sE@\#\#, @\#FreshFisH@\#**,
+**@\#\#\#Brea0D@\#\#\#**, **@\#\#Che46sE@\#\#**
+
+Examples of invalid barcodes: **\#\#InvaliDiteM\#\#**,
+**@InvalidIteM@**, **@\#Invalid\_IteM@\#**
+
+Next, you have to determine the **product group** of the item from the
+**barcode**. The product group is obtained by **concatenating** **all
+the digits** found in the barcode. If there are **no digits** present in
+the barcode, the **default** product group is **"00".**
+
+Examples:
+
+**@\#FreshFisH@\#** -\> product group: 00
+
+**@\#\#\#Brea0D@\#\#\#** -\> product group: 0
+
+**@\#\#Che4s6E@\#\#** -\> product group: 46
+
+### Input
+
+On the first line, you will be given an integer **n** – the count of
+barcodes that you will be receiving next.
+
+On the following **n** lines, you will receive different strings.
+
+### Output
+
+For each barcode that you process, you need to print a message.
+
+If the barcode is invalid:
+
+  - **"**Invalid barcode**"**
+
+If the barcode is valid:
+
+  - **"**Product group: {product group}**"**
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["3",</p>
+<p>"@#FreshFisH@#",</p>
+<p>"@###Brea0D@###",</p>
+<p>"@##Che4s6E@##"])</p></td>
+<td><p>Product group: 00</p>
+<p>Product group: 0</p>
+<p>Product group: 46</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["6",</p>
+<p>"@###Val1d1teM@###",</p>
+<p>"@#ValidIteM@#",</p>
+<p>"##InvaliDiteM##",</p>
+<p>"@InvalidIteM@",</p>
+<p>"@#Invalid_IteM@#",</p>
+<p>"@#ValiditeM@#"])</p></td>
+<td><p>Product group: 11</p>
+<p>Product group: 00</p>
+<p>Invalid barcode</p>
+<p>Invalid barcode</p>
+<p>Invalid barcode</p>
+<p>Product group: 00</p></td>
+</tr>
+</tbody>
+</table>
