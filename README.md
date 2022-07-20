@@ -1316,3 +1316,133 @@ MP: {current MP}**"**
 </tr>
 </tbody>
 </table>
+
+## **Problem 13 - Activation Keys**
+
+*You are about to make some good money, but first, you need to think of
+a way to verify who paid for your product and who didn't. You have
+decided to let people use the software for a free trial period and then
+require an activation key to continue using the product. Before you can
+cash out, the last step is to design a program that creates unique
+activation keys for each user. So, waste no more time and start
+typing\!*
+
+The first line of the input will be your raw activation key. It will
+consist of **letters and numbers only**.
+
+After that, until the **"Generate"** command is given, you will be
+receiving strings with instructions for different operations that need
+to be performed upon the raw activation key.
+
+There are several types of instructions, split by **"\>\>\>"**:
+
+  - **"Contains\>\>\>{substring}"**:
+    
+      - If the raw activation key contains the given substring, prints:
+        **"{raw activation key} contains {substring}"**.
+    
+      - Otherwise, prints: **"Substring not found\!"**
+
+  - **"Flip\>\>\>Upper/Lower\>\>\>{startIndex}\>\>\>{endIndex}"**:
+    
+      - Changes the substring **between the given indices (the end index
+        is exclusive)** to upper or lower case and then prints the
+        activation key.
+    
+      - All given indexes will be valid.
+
+  - **"Slice\>\>\>{startIndex}\>\>\>{endIndex}"**:
+    
+      - **Deletes** the characters between the start and end indices
+        (**the end index is exclusive) and** prints the activation key.
+    
+      - Both indices will be **valid**.
+
+### Input
+
+  - The first line of the input will be a string consisting of **letters
+    and numbers only**.
+
+  - After the first line, until the **"Generate"** command is given, you
+    will be receiving **strings**.
+
+### Output
+
+  - After the **"Generate"** command is received, print:
+    
+      - **"Your activation key is: {activation key}"**
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["abcdefghijklmnopqrstuvwxyz",</p>
+<p>"Slice&gt;&gt;&gt;2&gt;&gt;&gt;6",</p>
+<p>"Flip&gt;&gt;&gt;Upper&gt;&gt;&gt;3&gt;&gt;&gt;14",</p>
+<p>"Flip&gt;&gt;&gt;Lower&gt;&gt;&gt;5&gt;&gt;&gt;7",</p>
+<p>"Contains&gt;&gt;&gt;def",</p>
+<p>"Contains&gt;&gt;&gt;deF",</p>
+<p>"Generate"])</p></td>
+<td><p>abghijklmnopqrstuvwxyz</p>
+<p>abgHIJKLMNOPQRstuvwxyz</p>
+<p>abgHIjkLMNOPQRstuvwxyz</p>
+<p>Substring not found!</p>
+<p>Substring not found!</p>
+<p>Your activation key is: abgHIjkLMNOPQRstuvwxyz</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Comments</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><ol type="1">
+<li><p><strong>Slice&gt;&gt;2&gt;&gt;6</strong></p></li>
+</ol>
+<p>abcdefghijklmnopqrstuvwxyz becomes abghijklmnopqrstuvwxyz</p>
+<ol start="2" type="1">
+<li><p><strong>Flip&gt;&gt;&gt;Upper&gt;&gt;&gt;3&gt;&gt;&gt;14</strong></p></li>
+</ol>
+<p>abghijklmnopqrstuvwxyz becomes abgHIJKLMNOPQRstuvwxyz</p>
+<ol start="3" type="1">
+<li><p><strong>Flip&gt;&gt;&gt;Lower&gt;&gt;&gt;5&gt;&gt;&gt;7</strong></p></li>
+</ol>
+<p>abgHIJKLMNOPQRstuvwxyz becomes abgHIjkLMNOPQRstuvwxyz</p>
+<ol start="4" type="1">
+<li><p><strong>Contains&gt;&gt;&gt;def</strong></p></li>
+</ol>
+<p>abgHIjkLMNOPQRstuvwxyz does not contain def</p>
+<ol start="5" type="1">
+<li><p><strong>Contains&gt;&gt;&gt;deF</strong></p></li>
+</ol>
+<p>abgHIjkLMNOPQRstuvwxyz does not contain deF</p>
+<p>The final activation key is abgHIjkLMNOPQRstuvwxyz</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["134softsf5ftuni2020rockz42",</p>
+<p>"Slice&gt;&gt;&gt;3&gt;&gt;&gt;7",</p>
+<p>"Contains&gt;&gt;&gt;-rock",</p>
+<p>"Contains&gt;&gt;&gt;-uni-",</p>
+<p>"Contains&gt;&gt;&gt;-rocks",</p>
+<p>"Flip&gt;&gt;&gt;Upper&gt;&gt;&gt;2&gt;&gt;&gt;8",</p>
+<p>"Flip&gt;&gt;&gt;Lower&gt;&gt;&gt;5&gt;&gt;&gt;11",</p>
+<p>"Generate"])</p></td>
+<td><p>134sf5ftuni2020rockz42</p>
+<p>Substring not found!</p>
+<p>Substring not found!</p>
+<p>Substring not found!</p>
+<p>134SF5FTuni2020rockz42</p>
+<p>134SF5ftuni2020rockz42</p>
+<p>Your activation key is: 134SF5ftuni2020rockz42</p></td>
+</tr>
+</tbody>
+</table>
