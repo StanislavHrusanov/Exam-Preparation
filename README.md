@@ -1571,3 +1571,150 @@ There will always be at least one digit in the text\!
 </tr>
 </tbody>
 </table>
+
+## **Problem 15 - P\!rates**
+
+*Anno 1681. The Caribbean. The golden age of piracy. You are a
+well-known pirate captain by the name of Jack Daniels. Together with
+your comrades Jim (Beam) and Johnny (Walker), you have been roaming the
+seas, looking for gold and treasure… and the occasional killing, of
+course. Go ahead, target some wealthy settlements and show them the
+pirate's way\!*
+
+Until the **"Sail"** command is given, you will be receiving:
+
+  - You and your crew have targeted **cities**, with their
+    **population** and **gold**, separated by **"||"**.
+
+  - If you receive a city that has already been received, you have to
+    increase the population and gold with the given values.
+
+After the **"Sail"** command, you will start receiving lines of text
+representing events until the **"End"** command is given.
+
+Events will be in the following format:
+
+  - "Plunder=\>{town}=\>{people}=\>{gold}"
+    
+      - You have successfully attacked and plundered the town, killing
+        the given number of people and stealing the respective amount of
+        gold.
+    
+      - For every town you attack print this message: **"{town}
+        plundered\! {gold} gold stolen, {people} citizens killed."**
+    
+      - If any of those two values (population or gold) **reaches
+        zero**, the town is disbanded.
+        
+          - You need to **remove it** from your collection of targeted
+            cities and print the following message: **"{town} has been
+            wiped off the map\!"**
+    
+      - There will be no case of receiving more people or gold than
+        there is in the city.
+
+  - "Prosper=\>{town}=\>{gold}"
+    
+      - There has been dramatic economic growth in the given city**,
+        increasing its treasury** by the given amount of gold.
+    
+      - The gold amount **can be a negative number, so be careful.** If
+        a negative amount of gold is given, print: **"Gold added cannot
+        be a negative number\!" and ignore the command.**
+    
+      - If the given gold is a valid amount, increase the town's gold
+        reserves by the respective amount and print the following
+        message:
+
+**"{gold added} gold added to the city treasury. {town} now has {total
+gold} gold."**
+
+### Input
+
+  - On the first lines, until the **"Sail"** command, you will be
+    receiving strings representing the cities with their gold and
+    population, separated by **"||"**
+
+  - On the following lines, until the **"End"** command, you will be
+    receiving strings representing the actions described above,
+    separated by **"=\>"**
+
+### Output
+
+  - After receiving the **"End"** command, if there are any existing
+    settlements on your list of targets, you need to print all of them,
+    in the following format:
+
+"Ahoy, Captain\! There are {count} wealthy settlements to go to:
+
+{town1} -\> Population: {people} citizens, Gold: {gold} kg
+
+{town2} -\> Population: {people} citizens, Gold: {gold} kg
+
+…
+
+{town…n} -\> Population: {people} citizens, Gold: {gold} kg"
+
+  - If there are no settlements left to plunder, print:
+
+"Ahoy, Captain\! All targets have been plundered and destroyed\!"
+
+### Constraints
+
+  - The initial population and gold of the settlements will be valid
+    32-bit integers, never negative, or exceed the respective limits.
+
+  - The town names in the events will always be valid towns that should
+    be on your list.
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["Tortuga||345000||1250",</p>
+<p>"Santo Domingo||240000||630",</p>
+<p>"Havana||410000||1100",</p>
+<p>"Sail",</p>
+<p>"Plunder=&gt;Tortuga=&gt;75000=&gt;380",</p>
+<p>"Prosper=&gt;Santo Domingo=&gt;180",</p>
+<p>"End"])</p></td>
+<td><p>Tortuga plundered! 380 gold stolen, 75000 citizens killed.</p>
+<p>180 gold added to the city treasury. Santo Domingo now has 810 gold.</p>
+<p>Ahoy, Captain! There are 3 wealthy settlements to go to:</p>
+<p>Tortuga -&gt; Population: 270000 citizens, Gold: 870 kg</p>
+<p>Santo Domingo -&gt; Population: 240000 citizens, Gold: 810 kg</p>
+<p>Havana -&gt; Population: 410000 citizens, Gold: 1100 kg</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td><p>(["Nassau||95000||1000",</p>
+<p>"San Juan||930000||1250",</p>
+<p>"Campeche||270000||690",</p>
+<p>"Port Royal||320000||1000",</p>
+<p>"Port Royal||100000||2000",</p>
+<p>"Sail",</p>
+<p>"Prosper=&gt;Port Royal=&gt;-200",</p>
+<p>"Plunder=&gt;Nassau=&gt;94000=&gt;750",</p>
+<p>"Plunder=&gt;Nassau=&gt;1000=&gt;150",</p>
+<p>"Plunder=&gt;Campeche=&gt;150000=&gt;690",</p>
+<p>"End"])</p></td>
+<td><p>Gold added cannot be a negative number!</p>
+<p>Nassau plundered! 750 gold stolen, 94000 citizens killed.</p>
+<p>Nassau plundered! 150 gold stolen, 1000 citizens killed.</p>
+<p>Nassau has been wiped off the map!</p>
+<p>Campeche plundered! 690 gold stolen, 150000 citizens killed.</p>
+<p>Campeche has been wiped off the map!</p>
+<p>Ahoy, Captain! There are 2 wealthy settlements to go to:</p>
+<p>San Juan -&gt; Population: 930000 citizens, Gold: 1250 kg</p>
+<p>Port Royal -&gt; Population: 420000 citizens, Gold: 3000 kg</p></td>
+</tr>
+</tbody>
+</table>
