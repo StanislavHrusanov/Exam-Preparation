@@ -1446,3 +1446,128 @@ There are several types of instructions, split by **"\>\>\>"**:
 </tr>
 </tbody>
 </table>
+
+## **Problem 14 - Emoji Detector**
+
+Your task is to write a program that extracts emojis from a text and
+find the threshold based on the input.
+
+You have to get your **cool threshold**. It is obtained by **multiplying
+all** the digits found in the input. The cool threshold could be a
+**huge number**, so be mindful.
+
+An emoji is valid when:
+
+  - It is surrounded by 2 characters, either **"::"** or **"\*\*"**
+
+  - It is **at least 3** characters long (**without** the surrounding
+    symbols)
+
+  - **It starts** with a **capital letter**
+
+  - Continues with **lowercase** letters **only**
+
+Examples of valid emojis**: ::Joy::, \*\*Banana\*\*, ::Wink::**
+
+Examples of invalid emojis: **::Joy\*\*, ::fox:es:**, **\*\*Monk3ys\*\*,
+:Snak::Es::**
+
+You need to count **all valid emojis** in the text and calculate their
+**coolness**. The coolness of the emoji is **determined** by summing all
+the **ASCII values of all letters** in the emoji.
+
+Examples: **::Joy:: - 306, \*\*Banana\*\* - 577, ::Wink:: - 409**
+
+You need to print the result of the cool threshold and, after that to
+take all emojis out of the text, count them and print
+**<span class="underline">only the cool ones</span>** on the console.
+
+### Input
+
+  - On the single input, you will receive a piece of string.
+
+### Output
+
+  - On the first line of the output, print the obtained Cool threshold
+    in the format:
+
+> **"Cool threshold: {coolThresholdSum}"**
+
+  - On the following line, **print the** **count of all emojis** found
+    in the text in format:
+
+> "{countOfAllEmojis} emojis found in the text. The cool ones are:
+> 
+> {cool emoji 1}
+> 
+> {cool emoji 2}
+> 
+> …
+> 
+> {cool emoji N}"
+
+### Constraints
+
+There will always be at least one digit in the text\!
+
+### JS Examples
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td>[("In the Sofia Zoo there are 311 animals in total! ::Smiley:: This includes 3 **Tigers**, 1 ::Elephant:, 12 **Monk3ys**, a **Gorilla::, 5 ::fox:es: and 21 different types of :Snak::Es::. ::Mooning:: **Shy**"])</td>
+<td><p>Cool threshold: 540</p>
+<p>4 emojis found in the text. The cool ones are:</p>
+<p>::Smiley::</p>
+<p>**Tigers**</p>
+<p>::Mooning::</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Comments</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>You can see all the valid emojis in green. There are various reasons why the rest are not valid, examine them carefully. The "cool threshold" is 3*1*1*3*1*1*2*3*5*2*1 = 540.</p>
+<p>::Smiley:: -&gt; 83 + 109 + 105 + 108 + 101 + 121 = 627 &gt; 540 -&gt; cool</p>
+<p>**Tigers** -&gt; 84 + 105 + 103 + 101 + 114 + 115 = 622 &gt; 540 -&gt; cool</p>
+<p>::Mooning:: -&gt; 77 + 111 + 111 + 110 + 105 + 110 + 103 = 727 &gt; 540 -&gt; cool</p>
+<p>**Shy** -&gt; 83 + 104 + 121 = 308 &lt; 540 -&gt; not cool</p>
+<p>In the end, we print the count of all valid emojis found and each of the cool ones on a new line.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td>(["5, 4, 3, 2, 1, go! The 1-th consecutive banana-eating contest has begun! ::Joy:: **Banana** ::Wink:: **Vali** ::valid_emoji::"])</td>
+<td><p>Cool threshold: 120</p>
+<p>4 emojis found in the text. The cool ones are:</p>
+<p>::Joy::</p>
+<p>**Banana**</p>
+<p>::Wink::</p>
+<p>**Vali**</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><strong>Output</strong></td>
+</tr>
+<tr class="even">
+<td>(["It is a long established fact that 1 a reader will be distracted by 9 the readable content of a page when looking at its layout. The point of using ::LoremIpsum:: is that it has a more-or-less normal 3 distribution of 8 letters, as opposed to using 'Content here, content 99 here', making it look like readable **English**."])</td>
+<td><p>Cool threshold: 17496</p>
+<p>1 emojis found in the text. The cool ones are:</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Comments</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>You can see **English** is a valid emoji, but the sum of ASCII <strong>is not</strong> <strong>bigger</strong> than the cool threshold. That's why we <strong>don't</strong> print anything in the end.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
